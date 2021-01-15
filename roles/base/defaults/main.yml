@@ -1,0 +1,3 @@
+#
+site_name: demo
+target_directory: /var/www/{{ site_name }}

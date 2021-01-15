@@ -1,0 +1,48 @@
+#
+# Copyright 2020 Martin Goellnitz.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+# Following https://www.digitalocean.com/community/tutorials/how-to-use-ansible-to-install-and-set-up-apache-on-ubuntu-18-04
+- name: Apache latest version installation
+  package:
+    name:
+    - apache2
+    - certbot
+
+- name: Install PHP
+  package:
+    name:
+    - php
+    - php-apcu
+    - php-intl
+    - php-mbstring
+    - php-xml
+    - php-mysql
+
+- name: Force listening on IPv4 addresses
+  template: src=ports.conf dest=/etc/apache2/ports.conf
+
+- name: Enable service to start on boot up
+  service:
+    name: apache2
+    state: started
+
+- name: Enable SSL
+  apache2_module: name=ssl state=present
+
+- name: Restart apache service
+  service:
+    name: apache2
+    state: restarted

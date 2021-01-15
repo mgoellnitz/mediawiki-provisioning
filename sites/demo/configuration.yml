@@ -1,0 +1,17 @@
+#
+site_domain: my.domain
+domain_mail: hostmaster@my.domain
+
+wiki_db_schema: wikidbschema
+wiki_db_user: wikidbuser
+wiki_db_password: wikidbpassword
+
+backup_file: database.sql
+favicon_file: favicon.ico
+logo_file: logo.png
+
+secret_key: 1dfa6c957064425273d1ae44a3298621fca7a6ec322eb32adfd401cee839665b
+upgrade_key: 162514ae96ec9b38
+
+# TODO: Unused so far
+mariadb_root_password: maria
