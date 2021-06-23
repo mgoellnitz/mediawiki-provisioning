@@ -1,5 +1,5 @@
 #
-# Copyright 2020 Martin Goellnitz.
+# Copyright 2020-2021 Martin Goellnitz.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
 
 - name: Fetch MediaWiki
   get_url:
-    url: https://releases.wikimedia.org/mediawiki/1.35/mediawiki-1.35.1.tar.gz
+    url: https://releases.wikimedia.org/mediawiki/{{ release_short }}/mediawiki-{{ release_long }}.tar.gz
     dest: /opt/mediawiki.tar.gz
 
 - name: Ensure letsencrypt directory
